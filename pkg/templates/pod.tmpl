@@ -109,7 +109,7 @@ spec:
     imagePullPolicy: "Always"
     command: ["/bin/sh"]
 {{ if eq .KVCOp "add" }}
-    args: ["-c", "mc config host add s3 ${AWS_ENDPOINT_URL} ${AWS_ACCESS_KEY_ID} ${AWS_SECRET_ACCESS_KEY}; mc cp ${RECURSIVE_OPTION} s3/${BUCKET_NAME}${BUCKET_PATH} ${DATA_PATH}"]
+    args: ["-c", "mc config host add s3 ${AWS_ENDPOINT_URL} ${AWS_ACCESS_KEY_ID} ${AWS_SECRET_ACCESS_KEY} --api ${S3_VERSION}; mc cp ${RECURSIVE_OPTION} s3/${BUCKET_NAME}${BUCKET_PATH} ${DATA_PATH}"]
 {{ end  }}
 {{ if eq .KVCOp "delete" }}
     args: ["-c", "rm -rf ${DATA_PATH}"]
@@ -134,6 +134,8 @@ spec:
       value: {{.EndpointURL}}
     - name: S3_URL
       value: {{.SourceURL}}
+    - name: S3_VERSION
+      value: {{.S3Version}}
     - name: BUCKET_NAME
       value: {{.BucketName}}
     - name: BUCKET_PATH
