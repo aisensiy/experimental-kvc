@@ -48,6 +48,6 @@ code-generation:
 
 push-image: docker
 	@ echo "tagging container"
-	docker tag $(IMAGE_NAME):$(VERSION) volumecontroller/$(IMAGE_NAME):$(VERSION)
+	docker tag $(IMAGE_NAME):$(VERSION) eisenxu/$(IMAGE_NAME):$(VERSION)
 	@ echo "pushing container to gcr.io"
-	docker push volumecontroller/$(IMAGE_NAME):$(VERSION)
+	docker push eisenxu/$(IMAGE_NAME):$(VERSION)
