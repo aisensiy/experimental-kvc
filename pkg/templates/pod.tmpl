@@ -92,7 +92,7 @@ spec:
         path: {{index .Options "dataPath"}}
 {{ if eq .KVCOp "add" }}
   initContainers:
-  - image: minio/mc:RELEASE.2018-05-25T20-20-15Z
+  - image: minio/mc:RELEASE.2018-06-09T02-18-09Z
     imagePullPolicy: "Always"
     command: ["/bin/sh"]
     args: ["-c", "mkdir -p $DATA_PATH"]
@@ -105,7 +105,7 @@ spec:
       value: {{ index .KVCOptions "path" }}
 {{ end  }}
   containers:
-  - image: minio/mc:RELEASE.2018-05-25T20-20-15Z
+  - image: minio/mc:RELEASE.2018-06-09T02-18-09Z
     imagePullPolicy: "Always"
     command: ["/bin/sh"]
 {{ if eq .KVCOp "add" }}
